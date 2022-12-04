@@ -12,3 +12,8 @@ sentenceTag.addEventListener("keyup", function () {
 		outputTag.innerHTML = orginalText;
 	}
 });
+
+// when typing in text-area, sentenceTag is is updated accordingly
+outputTag.addEventListener("keyup", function () {
+	sentenceTag.value = this.value
+})
