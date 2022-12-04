@@ -1,6 +1,8 @@
 // variables
 const sentenceTag = document.querySelector("input.checker_config-input");
-const outputTag = document.querySelector("textarea.checker_output");
+const typeSizeTag = document.querySelector(`input[name="typesize"]`)
+const typeSizeOutput = document.querySelector("span.font-size-output")
+const outputTag = document.querySelector("textarea.output");
 const originalText = outputTag.value;
 
 // event listener to copy the text from the sentence input to the H1
@@ -15,5 +17,11 @@ sentenceTag.addEventListener("keyup", function () {
 
 // when typing in text-area, sentenceTag is is updated accordingly
 outputTag.addEventListener("keyup", function () {
-	sentenceTag.value = this.value
-})
+	sentenceTag.value = this.value;
+});
+
+// when font-size-range is adjusted, the font-size-output (number) adjusts accordingly
+typeSizeTag.addEventListener("input", function () {
+		outputTag.style.fontSize = `${this.value}px`;
+		typeSizeOutput.innerHTML = `${this.value} px`;
+});
