@@ -10,6 +10,9 @@ const fontWeightOutput = document.querySelector("span.font-weight-output")
 const lineHeightTag = document.querySelector(`input[name="lineHeight"]`)
 const lineHeightOutput = document.querySelector("span.line-height-output")
 
+const italicTag = document.querySelector(`input[name="checkbox"]`)
+const italicOutput = document.querySelector("div.text-area")
+
 const outputTag = document.querySelector("textarea.output");
 const originalText = outputTag.value;
 
@@ -34,14 +37,24 @@ typeSizeTag.addEventListener("input", function () {
 		typeSizeOutput.innerHTML = `${this.value} px`;
 });
 
-// when font-weight-range is adjusted, the font-weight-output adjusts accordingly along with the font weight in the text area
+// when font-weight-range is adjusted, the font-weight-output adjusts accordingly along with the font weight in the textarea
 fontWeightTag.addEventListener("input", function() {
 	outputTag.style.fontWeight = this.value;
 	fontWeightOutput.innerHTML = this.value;
 });
 
-// when line-height-range is adjusted, the line-height-output adjusts accordingly along with the line height in the text area
+// when line-height-range is adjusted, the line-height-output adjusts accordingly along with the line height in the textarea
 lineHeightTag.addEventListener("input", function () {
 	outputTag.style.lineHeight = this.value;
 	lineHeightOutput.innerHTML = this.value;
+});
+
+// when italic-checkbox is clicked, the output in textarea changes accordingly
+italicTag.addEventListener("change", function () {
+	// add the is-italic class to html embed
+	if (this.checked) {
+		outputTag.style.fontStyle = "italic";
+	} else {
+		outputTag.style.fontStyle = "normal"
+	}
 });
