@@ -1,17 +1,18 @@
 // variables
 const sentenceTag = document.querySelector("input.checker_config-input");
 
-const typeSizeTag = document.querySelector(`input[name="typeSize"]`)
-const typeSizeOutput = document.querySelector("span.font-size-output")
+const typeSizeTag = document.querySelector(`input[name="typeSize"]`);
+const typeSizeOutput = document.querySelector("span.font-size-output");
 
-const fontWeightTag = document.querySelector(`input[name="typeWeight"]`)
-const fontWeightOutput = document.querySelector("span.font-weight-output")
+const fontWeightTag = document.querySelector(`input[name="typeWeight"]`);
+const fontWeightOutput = document.querySelector("span.font-weight-output");
 
-const lineHeightTag = document.querySelector(`input[name="lineHeight"]`)
-const lineHeightOutput = document.querySelector("span.line-height-output")
+const lineHeightTag = document.querySelector(`input[name="lineHeight"]`);
+const lineHeightOutput = document.querySelector("span.line-height-output");
 
-const italicTag = document.querySelector(`input[name="checkbox"]`)
-const italicOutput = document.querySelector("div.text-area")
+const italicTag = document.querySelector(`input[name="checkbox"]`);
+
+const typefaceTag = document.querySelector(`select[name="typeface"]`);
 
 const outputTag = document.querySelector("textarea.output");
 const originalText = outputTag.value;
@@ -33,12 +34,12 @@ outputTag.addEventListener("keyup", function () {
 
 // when font-size-range is adjusted, the font-size-output (number) adjusts accordingly along with the font size in the text area
 typeSizeTag.addEventListener("input", function () {
-		outputTag.style.fontSize = `${this.value}px`;
-		typeSizeOutput.innerHTML = `${this.value} px`;
+	outputTag.style.fontSize = `${this.value}px`;
+	typeSizeOutput.innerHTML = `${this.value} px`;
 });
 
 // when font-weight-range is adjusted, the font-weight-output adjusts accordingly along with the font weight in the textarea
-fontWeightTag.addEventListener("input", function() {
+fontWeightTag.addEventListener("input", function () {
 	outputTag.style.fontWeight = this.value;
 	fontWeightOutput.innerHTML = this.value;
 });
@@ -55,6 +56,12 @@ italicTag.addEventListener("change", function () {
 	if (this.checked) {
 		outputTag.style.fontStyle = "italic";
 	} else {
-		outputTag.style.fontStyle = "normal"
+		outputTag.style.fontStyle = "normal";
 	}
 });
+
+
+// when typeface option is selected, the output in textarea changes accordingly
+typefaceTag.addEventListener("input", function () {
+	outputTag.style.fontFamily = this.value
+})
