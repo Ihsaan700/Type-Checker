@@ -12,7 +12,9 @@ const lineHeightOutput = document.querySelector("span.line-height-output");
 
 const italicTag = document.querySelector(`input[name="checkbox"]`);
 
-const typefaceTag = document.querySelector(`select[name="typeface"]`);
+const typefaceTag = document.querySelector(`select[id="typeface"]`);
+
+const colorTags = document.querySelectorAll("div.checker_color div");
 
 const outputTag = document.querySelector("textarea.output");
 const originalText = outputTag.value;
@@ -64,4 +66,13 @@ italicTag.addEventListener("change", function () {
 // when typeface option is selected, the output in textarea changes accordingly
 typefaceTag.addEventListener("input", function () {
 	outputTag.style.fontFamily = this.value
+})
+
+// iterate over all colors, get the background color and apply it to the text in textarea
+colorTags.forEach(function (tag) {
+	const compStyles = window.getComputedStyle(tag);
+	const fontColor = compStyles.getPropertyValue('background-color')
+	tag.addEventListener("click", function () {
+		outputTag.style.color = fontColor
+	})
 })
