@@ -62,17 +62,16 @@ italicTag.addEventListener("change", function () {
 	}
 });
 
-
 // when typeface option is selected, the output in textarea changes accordingly
 typefaceTag.addEventListener("input", function () {
-	outputTag.style.fontFamily = this.value
-})
+	outputTag.style.fontFamily = this.value;
+});
 
 // iterate over all colors, get the background color and apply it to the text in textarea
 colorTags.forEach(function (tag) {
 	const compStyles = window.getComputedStyle(tag);
-	const fontColor = compStyles.getPropertyValue('background-color')
+	const fontColor = compStyles.getPropertyValue("background-color");
 	tag.addEventListener("click", function () {
-		outputTag.style.color = fontColor
-	})
-})
+		outputTag.style.color = fontColor;
+	});
+});
