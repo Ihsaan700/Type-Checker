@@ -40,19 +40,19 @@ typeSizeTag.addEventListener("input", function () {
 	typeSizeOutput.innerHTML = `${this.value} px`;
 });
 
-// when font-weight-range is adjusted, the font-weight-output adjusts accordingly along with the font weight in the textarea
+// when font-weight-range is adjusted, the font-weight-output adjusts accordingly along with the font weight in the text-area
 fontWeightTag.addEventListener("input", function () {
 	outputTag.style.fontWeight = this.value;
 	fontWeightOutput.innerHTML = this.value;
 });
 
-// when line-height-range is adjusted, the line-height-output adjusts accordingly along with the line height in the textarea
+// when line-height-range is adjusted, the line-height-output adjusts accordingly along with the line height in the text-area
 lineHeightTag.addEventListener("input", function () {
 	outputTag.style.lineHeight = this.value;
 	lineHeightOutput.innerHTML = this.value;
 });
 
-// when italic-checkbox is clicked, the output in textarea changes accordingly
+// when italic-checkbox is clicked, the output in text-area changes accordingly
 italicTag.addEventListener("change", function () {
 	// add the is-italic class to html embed
 	if (this.checked) {
@@ -62,12 +62,12 @@ italicTag.addEventListener("change", function () {
 	}
 });
 
-// when typeface option is selected, the output in textarea changes accordingly
+// when typeface option is selected, the output in text-area changes accordingly
 typefaceTag.addEventListener("input", function () {
 	outputTag.style.fontFamily = this.value;
 });
 
-// iterate over all colors, get the background color and apply it to the text in textarea
+// iterate over all colours, get the background colour and apply it to the text in text-area
 colorTags.forEach(function (tag) {
 	const compStyles = window.getComputedStyle(tag);
 	const fontColor = compStyles.getPropertyValue("background-color");
